@@ -1,0 +1,28 @@
+@use "./variables" as *;
+
+@mixin my-border($radius, $color) {
+  border-radius: $radius;
+  border: 0.125rem solid $color;
+}
+
+/* add tablet and desktop breakpoint mixins */
+@mixin tablet {
+  @media screen and (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+@mixin padding-sides{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@mixin padding-bottom{
+    padding-bottom: 1.5rem;
+}
