@@ -21,8 +21,8 @@ function Navbar() {
             ></input>
             <img alt="search" src={searchIcon} className="form-icons" />
           </form>
-          <div className="button">
-            <button className="button-btn" type="submit">
+          <div className="nav-button">
+            <button type="submit">
               UPLOAD
             </button>
             <img alt="upload" src={uploadIcon} className="form-icons" />

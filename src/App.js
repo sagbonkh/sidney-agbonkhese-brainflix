@@ -7,6 +7,8 @@ import vidsData from "./data/videos.json";
 import vidDetails from "./data/video-details.json";
 import { useState } from "react";
 import Title from "./components/Title/Title";
+import AddComment from "./components/AddComment/AddComment";
+import UserComments from "./components/UserComments/UserComments";
 
 function App() {
   const [videos] = useState(vidsData);
@@ -46,6 +48,8 @@ function App() {
       <Navbar />
       <Video selectedVid={selectedVid} />
       <Title selectedVid={selectedVid} datefunction = {dateConverter}/>
+      <AddComment selectedVid={selectedVid} />
+      <UserComments selectedVid={selectedVid} datefunction = {dateConverter} />
     </>
   );
 }
