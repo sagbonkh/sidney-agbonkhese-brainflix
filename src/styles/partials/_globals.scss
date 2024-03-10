@@ -1,4 +1,4 @@
-@use "./mixins";
+@use "./mixins" as *;
 @use "./typography";
 @use "./variables" as *;
 
@@ -8,8 +8,8 @@
 
 p {
   font-family: "AvenirNext LT Pro";
-  font-weight: 400;
   color: $silver;
+  @include body-styling;
 }
 label {
   font-family: "AvenirNext LT Pro";
@@ -18,14 +18,16 @@ label {
 }
 h3 {
   font-family: "AvenirNext LT Pro";
+  @include subheader-styling;
 }
 h2 {
   font-family: "AvenirNext LT Pro";
-  font-weight: 600;
+  color: $silver;
+  @include section-header-styling;
 }
 h1 {
   font-family: "AvenirNext LT Pro";
-  font-weight: 700;
+  @include header-styling;
 }
 a {
   text-decoration: none;
@@ -61,6 +63,7 @@ button {
   padding: 0rem 2rem;
   width: 100%;
   margin-bottom: 0;
+  // @include label-button-styling
 }
 
 button:hover {

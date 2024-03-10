@@ -1,2 +1,17 @@
 @use "./styles/partials/globals";
+@use "./styles/partials/variables";
+@use "./styles/partials/mixins" as *;
 
+.main-content{
+    @include desktop {
+        display: flex;
+
+    }
+}
+
+.large-screen{
+    @include desktop{
+        width: 100%;
+        @include border-right;
+    }
+}

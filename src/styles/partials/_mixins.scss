@@ -1,10 +1,5 @@
 @use "./variables" as *;
 
-@mixin my-border($radius, $color) {
-  border-radius: $radius;
-  border: 0.125rem solid $color;
-}
-
 /* add tablet and desktop breakpoint mixins */
 @mixin tablet {
   @media screen and (min-width: $tablet-breakpoint) {
@@ -16,6 +11,10 @@
   @media screen and (min-width: $desktop-breakpoint) {
     @content;
   }
+}
+@mixin my-border($radius, $color) {
+  border-radius: $radius;
+  border: 0.125rem solid $color;
 }
 
 @mixin padding-sides {
@@ -29,4 +28,59 @@
 
 @mixin border-bottom {
   border-bottom: 0.06rem solid $mercury;
+}
+
+@mixin border-right {
+  border-right: 0.06rem solid $mercury;
+}
+
+@mixin header-styling {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 2rem;
+
+  @include tablet {
+    font-size: 2.063rem;
+    line-height: 2.75rem;
+  }
+}
+
+@mixin label-button-styling{
+  font-size: 0.6rem;
+  line-height: 1.3rem;
+  font-weight: 700;
+  @include tablet{
+    font-size: 0.8rem;
+    line-height: 1.3rem;
+  }
+}
+
+@mixin body-styling{
+  font-size: 0.813rem;
+  line-height: 1.1rem;
+  font-weight: 400;
+  @include tablet{
+    font-size: 0.9rem;
+    line-height: 1.375rem;
+  }
+}
+
+@mixin subheader-styling{
+  font-size: 0.813rem;
+  line-height: 1.1rem;
+  font-weight: 700;
+  @include tablet{
+    font-size: 0.9rem;
+    line-height: 1.375rem;
+  }
+}
+
+@mixin section-header-styling{
+  font-size: 0.8rem;
+  line-height: 1.3rem;
+  font-weight: 700;
+  @include tablet{
+    font-size: 0.8rem;
+    line-height: 1.3rem;
+  }
 }

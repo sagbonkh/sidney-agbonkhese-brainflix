@@ -10,7 +10,7 @@ function AddComment({ selectedVid }) {
       <form className="form">
         <img src={avatar} alt="avatar" className="form-avatar" />
         <div className="form-text-div">
-          <label htmlFor="form-text">JOIN THE CONVERSATION</label>
+          <h2 className="form-subheading">JOIN THE CONVERSATION</h2>
           <textarea
             placeholder="Add a new comment"
             className="form-text"

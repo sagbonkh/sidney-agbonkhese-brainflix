@@ -1,4 +1,3 @@
-@use "../../styles/partials/globals";
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
@@ -33,8 +32,12 @@
     height: 6.25rem;
     width: 100%;
   }
+  &-subheading{
+    margin: 0;
+  }
   @include tablet {
     display: flex;
+    padding-left: 4rem;
     &-text-div{
         display: flex;
         flex-direction: column;

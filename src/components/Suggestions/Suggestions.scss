@@ -1,0 +1,43 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.suggestions {
+  @include padding-sides;
+  @include padding-bottom;
+
+  &-heading {
+    color: $silver;
+  }
+  &-single {
+    display: flex;
+    margin-bottom: 1rem;
+  }
+  &-img {
+    background-color: $mercury;
+    width: 9rem;
+    height: 5rem;
+    border-radius: 0.3rem;
+    height: 100%;
+  }
+  &-title {
+    margin-top: 0;
+  }
+  &-channel {
+    color: #323232;
+    display: flex;
+    margin: 0;
+    flex-grow: 1;
+    align-items: flex-end;
+  }
+  &-text {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  @include desktop{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+}
