@@ -57,7 +57,7 @@ function App() {
             datefunction={dateConverter}
           />
         </div>
-        <Suggestions filteredVid={filteredVid} />
+        <Suggestions filteredVid={filteredVid} selectVideo = {handleVideoSelector}/>
       </main>
     </>
   );

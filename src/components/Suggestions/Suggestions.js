@@ -1,12 +1,12 @@
 import "./Suggestions.scss";
 
-function Suggestions({ filteredVid }) {
+function Suggestions({ filteredVid, selectVideo }) {
   return (
     <div className="suggestions">
       <h2 className="suggestions-heading">NEXT VIDEOS</h2>
       {filteredVid.map((suggestion) => {
         return (
-          <div className="suggestions-single">
+          <a className="suggestions-single" onClick={() => selectVideo(suggestion.id)} key={suggestion.id}>
             <div>
               <img
                 className="suggestions-img"
@@ -18,7 +18,7 @@ function Suggestions({ filteredVid }) {
               <h3 className="suggestions-title">{suggestion.title}</h3>
               <p className="suggestions-channel">{suggestion.channel}</p>
             </div>
-          </div>
+          </a>
         );
       })}
     </div>
