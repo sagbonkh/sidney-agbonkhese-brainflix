@@ -18,11 +18,15 @@
   }
 }
 
-@mixin padding-sides{
-    padding-left: 1rem;
-    padding-right: 1rem;
+@mixin padding-sides {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-@mixin padding-bottom{
-    padding-bottom: 1.5rem;
+@mixin padding-bottom {
+  padding-bottom: 1.5rem;
+}
+
+@mixin border-bottom {
+  border-bottom: 0.06rem solid $mercury;
 }

@@ -21,7 +21,7 @@
 
   @include tablet {
     @include padding-sides;
-    @include padding-bottom;
+    padding-bottom: 0;
     flex-direction: row;
 
     &-logo {
@@ -56,7 +56,7 @@
     max-height: 2rem;
     width: 2rem;
     height: 2rem;
-    top: 4.125rem;
+    top: 4.3rem;
     right: 1rem;
   }
   @include tablet {
@@ -103,7 +103,7 @@
 }
 .form-icons {
   position: absolute;
-  top: 8px;
+  top: 0.8rem;
   left: 0.5rem;
   @include tablet {
     top: 0.8rem;
