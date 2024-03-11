@@ -1,0 +1,104 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.navbar {
+  @include padding-sides;
+  @include padding-bottom;
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  &-link {
+    display: flex;
+    justify-content: center;
+  }
+  &-logo {
+    max-width: 7.5rem;
+    max-height: 1.563rem;
+    margin-bottom: 1rem;
+  }
+
+  @include tablet {
+    @include padding-sides;
+    padding-bottom: 0;
+    flex-direction: row;
+
+    &-logo {
+      margin-right: 7rem;
+      margin-top: 0.8rem;
+    }
+  }
+  @include desktop {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+}
+
+.upload {
+  display: flex;
+  position: relative;
+  margin-bottom: 1rem;
+  &-text {
+    min-height: 2.25rem;
+    // padding: 0.8rem;
+    width: 88%;
+    margin-right: 1rem;
+    padding-left: 2rem;
+  }
+  &-avatar {
+    position: absolute;
+    border-radius: 50%;
+    background-color: $mercury;
+    background-size: cover;
+    background-position: center;
+    max-width: 2rem;
+    max-height: 2rem;
+    width: 2rem;
+    height: 2rem;
+    top: 4.3rem;
+    right: 1rem;
+  }
+  @include tablet {
+    &-text {
+      min-height: 2.5rem;
+      margin-right: 5rem;
+      padding: 1rem;
+      padding-left: 2.5rem;
+    }
+    &-avatar {
+      right: 2rem;
+      top: 1.7rem;
+      max-width: 3rem;
+      max-height: 3rem;
+      width: 2.6rem;
+      height: 2.6rem;
+    }
+  }
+  @include desktop {
+    &-avatar {
+      right: 9%;
+    }
+  }
+}
+.nav-button {
+  position: relative;
+  margin-top: 0;
+}
+.form-icons {
+  position: absolute;
+  top: 0.8rem;
+  left: 0.5rem;
+  @include tablet {
+    top: 0.8rem;
+    left: 0.8rem;
+  }
+}
+
+.form-div {
+  @include tablet {
+    display: flex;
+    flex-grow: 2;
+    justify-content: flex-end;
+    margin-right: 6rem;
+  }
+}

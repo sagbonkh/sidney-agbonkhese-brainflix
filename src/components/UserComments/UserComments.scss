@@ -1,0 +1,49 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.user-comments {
+  @include padding-sides;
+  @include padding-bottom;
+}
+
+.comment {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-left: 3rem;
+  @include border-bottom;
+  &-avatar {
+    position: absolute;
+    border-radius: 50%;
+    background-color: $mercury;
+    background-size: cover;
+    background-position: center;
+    max-width: 2rem;
+    max-height: 2rem;
+    width: 2rem;
+    height: 2rem;
+    top: 1rem;
+    left: 0;
+  }
+  &-date {
+    position: absolute;
+    right: 0;
+  }
+  &-name {
+    font-weight: 600;
+  }
+  &-text {
+    color: $brainFlixBlack;
+    margin-top: 0;
+  }
+
+  @include tablet{
+    padding-left: 5rem;
+    &-avatar{
+      max-width: 3rem;
+      max-height: 3rem;
+      width: 2.6rem;
+      height: 2.6rem;
+    }
+  }
+}

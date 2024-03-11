@@ -1,24 +1,17 @@
-.App {
-  text-align: center;
+@use "./styles/partials/globals";
+@use "./styles/partials/variables";
+@use "./styles/partials/mixins" as *;
+
+.main-content{
+    @include desktop {
+        display: flex;
+
+    }
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.large-screen{
+    @include desktop{
+        width: 100%;
+        @include border-right;
+    }
 }
