@@ -10,6 +10,9 @@ import Title from "./components/Title/Title";
 import AddComment from "./components/AddComment/AddComment";
 import UserComments from "./components/UserComments/UserComments";
 import Suggestions from "./components/Suggestions/Suggestions";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+// import VideoUpload from "./pages/VideoUpload/VideoUpload";
+import HomePage from "./pages/HomePage/HomePage";
 
 function App() {
   const [videos] = useState(vidsData);
@@ -45,21 +48,22 @@ function App() {
   };
 
   return (
-    <>
+    <BrowserRouter>
       <Navbar />
-      <Video selectedVid={selectedVid} />
-      <main className="main-content">
-        <div className="large-screen">
-          <Title selectedVid={selectedVid} datefunction={dateConverter} />
-          <AddComment selectedVid={selectedVid} />
-          <UserComments
-            selectedVid={selectedVid}
-            datefunction={dateConverter}
-          />
-        </div>
-        <Suggestions filteredVid={filteredVid} selectVideo = {handleVideoSelector}/>
-      </main>
-    </>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <HomePage
+              selectedVid={selectedVid}
+              datefunction={dateConverter}
+              filteredVid={filteredVid}
+              selectVideo={handleVideoSelector}
+            />
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

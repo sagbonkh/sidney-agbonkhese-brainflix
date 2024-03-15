@@ -20,11 +20,11 @@ function Title({ selectedVid, datefunction }) {
         </div>
         <div className="content-views-div">
           <div className="content-view-div">
-            <img src={viewIcon} />
+            <img alt ="view icon" src={viewIcon} />
             <p className="content-text-img">{views}</p>
           </div>
           <div className="content-view-div">
-            <img src={likeIcon} />
+            <img src={likeIcon} alt="like icon" />
             <p className="content-text-img">{likes}</p>
           </div>
         </div>
