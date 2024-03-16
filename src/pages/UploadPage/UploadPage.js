@@ -11,7 +11,7 @@ function UploadPage() {
     <main className="upload-pg">
       <h1 className="upload-pg-title">Upload Video</h1>
       <form className="upload-pg__form">
-        <h2>VIDEO THUMBNAIL</h2>
+        <label>VIDEO THUMBNAIL</label>
         <img src={uploadImg} alt="runner" className="upload-pg__form-img" />
         <label htmlFor="upload-pg-input" className="upload-pg__form-label">
           TITLE YOUR VIDEO
