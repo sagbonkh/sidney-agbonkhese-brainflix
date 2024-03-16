@@ -1,0 +1,49 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.upload-pg {
+  @include padding-sides;
+  @include padding-bottom;
+  @include border-top;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    &__img {
+      width: 100%;
+      height: fit-content;
+      margin-bottom: 1rem;
+    }
+    &-area{
+        height: 6.25rem;
+        width: 100%;
+    }
+    &-label {
+      margin-top: 1rem;
+    }
+  }
+  &__btn {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+
+    &-icon {
+      position: absolute;
+      top: 0.8rem;
+      left: 0.5rem;
+      @include tablet {
+        top: 0.8rem;
+        left: 0.8rem;
+      }
+    }
+  }
+  &-cancel{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    color: $brainFlixBlue;
+    font-weight: 600;
+  }
+
+}

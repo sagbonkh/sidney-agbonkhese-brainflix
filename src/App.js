@@ -13,6 +13,7 @@ import Suggestions from "./components/Suggestions/Suggestions";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import VideoUpload from "./pages/VideoUpload/VideoUpload";
 import HomePage from "./pages/HomePage/HomePage";
+import UploadPage from "./pages/UploadPage/UploadPage";
 
 function App() {
   const [videos] = useState(vidsData);
@@ -62,6 +63,7 @@ function App() {
             />
           }
         />
+        <Route path="upload" element={<UploadPage />} />
       </Routes>
     </BrowserRouter>
   );

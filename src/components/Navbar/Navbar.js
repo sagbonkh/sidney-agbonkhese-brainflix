@@ -2,14 +2,17 @@ import logo from "../../assets/images/logo/BrainFlix-logo.svg";
 import avatar from "../../assets/images/Mohan-muruge.jpg";
 import searchIcon from "../../assets/images/Icons/search.svg";
 import uploadIcon from "../../assets/images/Icons/upload.svg";
+import { Link } from "react-router-dom";
 import "./Navbar.scss";
 
 function Navbar() {
   return (
     <>
       <nav className="navbar">
-        <a className="navbar-link" href="./">
-          <img src={logo} alt="brainflix logo" className="navbar-logo" />
+        <a>
+          <Link to="/">
+            <img src={logo} alt="brainflix logo" className="navbar-logo" />
+          </Link>
         </a>
         <div className="form-div">
           <form className="upload">
@@ -22,9 +25,9 @@ function Navbar() {
             <img alt="search" src={searchIcon} className="form-icons" />
           </form>
           <div className="nav-button">
-            <button type="submit">
-              UPLOAD
-            </button>
+            <Link to="upload">
+              <button type="submit">UPLOAD</button>
+            </Link>
             <img alt="upload" src={uploadIcon} className="form-icons" />
           </div>
         </div>
