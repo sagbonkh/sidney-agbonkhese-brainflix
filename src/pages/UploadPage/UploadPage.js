@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 function UploadPage() {
   const handleSubmit = (event) => {
     event.preventDefault();
+    alert("Upload uccessful!");
   };
   return (
     <main className="upload-pg">
@@ -38,8 +39,8 @@ function UploadPage() {
           alt="upload icon"
           className="upload-pg__btn-icon"
         />
-        <button type="submit" onSubmit={handleSubmit}>
-          PUBLISH
+        <button type="submit" onClick={handleSubmit}>
+          <Link to="/" className="link">PUBLISH</Link>
         </button>
       </div>
       <Link to="/" className="upload-pg-cancel">
