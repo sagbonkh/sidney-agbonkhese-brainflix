@@ -43,7 +43,7 @@ function UploadPage() {
         </button>
       </div>
       <Link to="/" className="upload-pg-cancel">
-        <a>CANCEL</a>
+        CANCEL
       </Link>
     </main>
   );

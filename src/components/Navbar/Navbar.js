@@ -9,11 +9,9 @@ function Navbar() {
   return (
     <>
       <nav className="navbar">
-        <a>
-          <Link to="/">
+        <Link to="/">
             <img src={logo} alt="brainflix logo" className="navbar-logo" />
-          </Link>
-        </a>
+        </Link>
         <div className="form-div">
           <form className="upload">
             <input

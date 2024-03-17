@@ -1,12 +1,18 @@
+import { Link } from "react-router-dom";
 import "./Suggestions.scss";
 
-function Suggestions({ filteredVid, selectVideo }) {
+function Suggestions({ filteredVid }) {
+  if(!filteredVid){
+    return(
+      <div>Loading...</div>
+    )
+  }
   return (
     <div className="suggestions">
       <h2 className="suggestions-heading">NEXT VIDEOS</h2>
       {filteredVid.map((suggestion) => {
         return (
-          <a className="suggestions-single" onClick={() => selectVideo(suggestion.id)} key={suggestion.id}>
+          <Link key={suggestion.id} to={`/video/${suggestion.id}`} className="suggestions-single">
             <div>
               <img
                 className="suggestions-img"
@@ -18,7 +24,7 @@ function Suggestions({ filteredVid, selectVideo }) {
               <h3 className="suggestions-title">{suggestion.title}</h3>
               <p className="suggestions-channel">{suggestion.channel}</p>
             </div>
-          </a>
+          </Link>
         );
       })}
     </div>

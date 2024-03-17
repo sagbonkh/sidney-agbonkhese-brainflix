@@ -3,6 +3,11 @@ import likeIcon from "../../assets/images/Icons/likes.svg";
 import viewIcon from "../../assets/images/Icons/views.svg";
 
 function Title({ selectedVid, datefunction }) {
+  if(!selectedVid){
+    return(
+      <div>Loading...</div>
+    )
+  }
   const title = selectedVid.title;
   const channel = selectedVid.channel;
   const timestamp = selectedVid.timestamp;
