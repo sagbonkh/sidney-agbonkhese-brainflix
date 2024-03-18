@@ -1,6 +1,12 @@
+import { useParams } from "react-router-dom";
 import "./Video.scss";
 
 function Video({ selectedVid }) {
+  if(!selectedVid){
+    return(
+      <div>Loading...</div>
+    )
+  }
   const videoUrl = selectedVid.video;
   const videoPoster = selectedVid.image;
 

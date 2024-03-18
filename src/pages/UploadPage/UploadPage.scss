@@ -1,0 +1,90 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.upload-pg {
+  @include padding-sides;
+  @include padding-bottom;
+  @include border-top;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    &__img {
+      width: 24.875rem;
+      height: fit-content;
+      margin-bottom: 1rem;
+    }
+    &-area{
+        height: 6.25rem;
+        width: 100%;
+    }
+    &-label {
+      margin-top: 1rem;
+    }
+    &-text-sect{
+        display: flex;
+        flex-direction: column;
+    }
+  }
+  &__btn {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+
+    &-icon {
+      position: absolute;
+      top: 0.8rem;
+      left: 0.5rem;
+      @include tablet {
+        top: 0.8rem;
+        left: 0.8rem;
+      }
+    }
+  }
+  &-cancel{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    color: $brainFlixBlue;
+    font-weight: 600;
+  }
+
+  @include tablet{
+    &__form{
+      @include border-top;
+      padding-top:2rem;
+
+      &-thumbnail-div{
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    &-cancel{
+      position: absolute;
+      right:15rem;
+      top: 2.2rem;
+    }
+
+  }
+  @include desktop{
+    &__form{
+      flex-direction: row;
+      &-text-sect{
+        margin-left: 2rem;
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+.button-sect{
+  @include tablet{
+    @include border-top;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+  }
+}

@@ -29,6 +29,9 @@
 @mixin border-bottom {
   border-bottom: 0.06rem solid $mercury;
 }
+@mixin border-top {
+  border-top: 0.06rem solid $mercury;
+}
 
 @mixin border-right {
   border-right: 0.06rem solid $mercury;

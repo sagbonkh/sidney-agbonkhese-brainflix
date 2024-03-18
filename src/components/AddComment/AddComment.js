@@ -3,6 +3,11 @@ import commentIcon from "../../assets/images/Icons/add_comment.svg";
 import avatar from "../../assets/images/Mohan-muruge.jpg";
 
 function AddComment({ selectedVid }) {
+  if(!selectedVid){
+    return(
+      <div>Loading...</div>
+    )
+  }
   const comments = selectedVid.comments.length;
   return (
     <div className="addsect">
