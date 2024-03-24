@@ -1,21 +1,15 @@
 import "./UserComments.scss";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import fetchDetails from "../../hooks/fetchDetails";
 
 function UserComments({ selectedVid, datefunction }) {
   const baseUrl = process.env.REACT_APP_BACKEND_URL;
-  const [displayVid, setDisplayVid] = useState(null);
-  useEffect(() => {
-    async function fetchDisplayVid() {
-      const response = await axios.get(`${baseUrl}/videos/${selectedVid}`);
-      setDisplayVid(response.data);
-    }
-    fetchDisplayVid();
-  }, [selectedVid]);
-
+  const displayVid = fetchDetails(baseUrl, selectedVid);
   if (!selectedVid || !displayVid) {
     return <div>Loading...</div>;
   }
+
   const comments = displayVid.comments;
   return (
     <div className="user-comments">
