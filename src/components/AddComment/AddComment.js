@@ -1,14 +1,25 @@
 import "./AddComment.scss";
 import commentIcon from "../../assets/images/Icons/add_comment.svg";
 import avatar from "../../assets/images/Mohan-muruge.jpg";
+import { useEffect, useRef, useState } from "react";
+import axios from "axios";
 
 function AddComment({ selectedVid }) {
-  if(!selectedVid){
-    return(
-      <div>Loading...</div>
-    )
+  const baseUrl = process.env.REACT_APP_BACKEND_URL;
+  const [displayVid, setDisplayVid] = useState(null);
+  useEffect(() => {
+    async function fetchDisplayVid() {
+      const response = await axios.get(`${baseUrl}/videos/${selectedVid}`);
+      setDisplayVid(response.data);
+    }
+    fetchDisplayVid();
+  }, [selectedVid]);
+
+  if (!selectedVid || !displayVid) {
+    return <div>Loading...</div>;
   }
-  const comments = selectedVid.comments.length;
+
+  const comments = displayVid.comments.length;
   return (
     <div className="addsect">
       <h3 className="addsect-comment">{comments} Comments</h3>

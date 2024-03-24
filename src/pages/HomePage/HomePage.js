@@ -10,50 +10,28 @@ import { useEffect, useState } from "react";
 import "./HomePage.scss";
 
 function HomePage() {
-  const API_KEY = "36b49d3c-657d-4856-8e72-d31b935086ad";
-  const baseUrl = "https://unit-3-project-api-0a5620414506.herokuapp.com/";
+  const baseUrl = process.env.REACT_APP_BACKEND_URL;
   const { idFromParams } = useParams();
-  const [summaries, setSummaries] = useState([]);
-  const [displayVid, setDisplayVid] = useState(null);
+  let defaultID = null;
+  const [videos, setVideos] = useState([]);
+
+  if (videos.length > 0) {
+    defaultID = videos[0].id;
+  }
+
+  let displayID = idFromParams ?? defaultID;
+
+  const filteredVideo = videos.filter((video) => video.id !== displayID);
 
   useEffect(() => {
-    async function fetchVidDetails() {
-      try {
-        let response;
-        if (idFromParams) {
-          response = await axios.get(
-            `${baseUrl}videos/${idFromParams}?api_key=${API_KEY}`
-          );
-        } else {
-          // Fetch the first detailed object by default
-          let summaryResponse = await axios.get(`${baseUrl}videos?api_key=${API_KEY}`);
-          const defId = summaryResponse.data[0].id;
-          response = await axios.get(
-            `${baseUrl}videos/${defId}?api_key=${API_KEY}`);
-        }
-        setDisplayVid(response.data);
-      } catch (error) {
-        console.error("Error fetching video details:", error);
-      }
-    }
+    axios.get(`${baseUrl}/videos`).then((response) => {
+      setVideos(response.data);
+    });
+  }, []);
 
-    async function fetchSummaries() {
-      try {
-        const response = await axios.get(`${baseUrl}videos?api_key=${API_KEY}`);
-        let arr;
-        if(!idFromParams){
-          const defaultId = response.data[0].id;
-          arr = response.data.filter((vid) => vid.id !== defaultId);
-        }
-        setSummaries(arr);
-      } catch (error) {
-        console.error("Error fetching video summaries:", error);
-      }
-    }
-
-    fetchVidDetails();
-    fetchSummaries();
-  }, [idFromParams]);
+  if (!videos || !displayID) {
+    return <div>...Loading</div>;
+  }
 
   // Function to convert date to m/d/yyyy
   const dateConverter = (timestamp) => {
@@ -80,16 +58,14 @@ function HomePage() {
 
   return (
     <main>
-      <Video selectedVid={displayVid} />
+      <Video vidID={displayID} />
       <div className="main-content">
         <div className="large-screen">
-          <Title selectedVid={displayVid} datefunction={dateConverter} />
-          <AddComment selectedVid={displayVid} />
-          <UserComments selectedVid={displayVid} datefunction={dateConverter} />
+          <Title selectedVid={displayID} datefunction={dateConverter} />
+          <AddComment selectedVid={displayID} />
+          <UserComments selectedVid={displayID} datefunction={dateConverter} />
         </div>
-        <Suggestions
-          filteredVid={summaries}
-        />
+        <Suggestions filteredVid={filteredVideo} />
       </div>
     </main>
   );
