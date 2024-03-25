@@ -1,14 +1,18 @@
 import { useParams } from "react-router-dom";
 import "./Video.scss";
+import { useEffect, useRef, useState } from "react";
+import axios from "axios";
+import fetchDetails from "../../hooks/fetchDetails";
 
-function Video({ selectedVid }) {
-  if(!selectedVid){
-    return(
-      <div>Loading...</div>
-    )
+function Video({ vidID }) {
+  const baseUrl = process.env.REACT_APP_BACKEND_URL;
+
+  const displayVid = fetchDetails(baseUrl, vidID);
+  if (!vidID || !displayVid) {
+    return <div>Loading...</div>;
   }
-  const videoUrl = selectedVid.video;
-  const videoPoster = selectedVid.image;
+  const videoPoster = displayVid.image;
+  const videoUrl = displayVid.video;
 
   return (
     <div className="video-container">

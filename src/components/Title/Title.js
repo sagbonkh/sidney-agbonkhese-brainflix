@@ -1,19 +1,24 @@
 import "./Title.scss";
 import likeIcon from "../../assets/images/Icons/likes.svg";
 import viewIcon from "../../assets/images/Icons/views.svg";
+import { useEffect, useRef, useState } from "react";
+import axios from "axios";
+import fetchDetails from "../../hooks/fetchDetails";
 
 function Title({ selectedVid, datefunction }) {
-  if(!selectedVid){
-    return(
-      <div>Loading...</div>
-    )
+  const baseUrl = process.env.REACT_APP_BACKEND_URL;
+  const displayVid = fetchDetails(baseUrl, selectedVid);
+
+  if (!selectedVid || !displayVid) {
+    return <div>Loading...</div>;
   }
-  const title = selectedVid.title;
-  const channel = selectedVid.channel;
-  const timestamp = selectedVid.timestamp;
-  const views = selectedVid.views;
-  const likes = selectedVid.likes;
-  const description = selectedVid.description;
+
+  const title = displayVid.title;
+  const channel = displayVid.channel;
+  const timestamp = displayVid.timestamp;
+  const views = displayVid.views;
+  const likes = displayVid.likes;
+  const description = displayVid.description;
 
   return (
     <div className="content">
@@ -25,7 +30,7 @@ function Title({ selectedVid, datefunction }) {
         </div>
         <div className="content-views-div">
           <div className="content-view-div">
-            <img alt ="view icon" src={viewIcon} />
+            <img alt="view icon" src={viewIcon} />
             <p className="content-text-img">{views}</p>
           </div>
           <div className="content-view-div">
