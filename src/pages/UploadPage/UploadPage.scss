@@ -9,22 +9,24 @@
   &__form {
     display: flex;
     flex-direction: column;
+    position: relative;
 
     &__img {
-      width: 24.875rem;
+      width: 100%;
+      max-width: 24.875rem;
       height: fit-content;
       margin-bottom: 1rem;
     }
-    &-area{
-        height: 6.25rem;
-        width: 100%;
+    &-area {
+      height: 6.25rem;
+      width: 100%;
     }
     &-label {
       margin-top: 1rem;
     }
-    &-text-sect{
-        display: flex;
-        flex-direction: column;
+    &-text-sect {
+      display: flex;
+      flex-direction: column;
     }
   }
   &__btn {
@@ -42,7 +44,7 @@
       }
     }
   }
-  &-cancel{
+  &-cancel {
     display: flex;
     justify-content: center;
     margin-top: 1rem;
@@ -50,36 +52,40 @@
     font-weight: 600;
   }
 
-  @include tablet{
-    &__form{
+  @include tablet {
+    &__form {
       @include border-top;
-      padding-top:2rem;
+      padding-top: 2rem;
 
-      &-thumbnail-div{
+      &-thumbnail-div {
         display: flex;
         flex-direction: column;
       }
     }
-    &-cancel{
+    &-cancel {
       position: absolute;
-      right:15rem;
+      right: 15rem;
       top: 2.2rem;
     }
-
   }
-  @include desktop{
-    &__form{
-      flex-direction: row;
-      &-text-sect{
+  @include desktop {
+    &__form {
+      flex-direction: column;
+      &-text-sect {
         margin-left: 2rem;
         flex-grow: 1;
       }
     }
+    &__row {
+      display: flex;
+      flex-direction: row;
+      flex-grow: 1;
+    }
   }
 }
 
-.button-sect{
-  @include tablet{
+.button-sect {
+  @include tablet {
     @include border-top;
     margin-top: 2rem;
     padding-top: 1rem;

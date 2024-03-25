@@ -22,7 +22,7 @@ function UploadPage() {
       alert("All feilds must be filled!");
       return;
     }
-    axios.post(`http://localhost:8080/videos`, {
+    axios.post(`${baseUrl}/videos`, {
       title: formRef.current.title.value,
       description: formRef.current.description.value,
     });
@@ -33,31 +33,37 @@ function UploadPage() {
     <main className="upload-pg">
       <h1 className="upload-pg-title">Upload Video</h1>
       <form className="upload-pg__form" onSubmit={handleSubmit} ref={formRef}>
-        <div className="upload-pg__form-thumbnail-div">
-          <label>VIDEO THUMBNAIL</label>
-          <img src={uploadImg} alt="runner" className="upload-pg__form__img" />
-        </div>
-        <div className="upload-pg__form-text-sect">
-          <label htmlFor="title" className="upload-pg__form-label">
-            TITLE YOUR VIDEO
-          </label>
-          <input
-            id="title"
-            type="text"
-            className="upload-pg__form-text"
-            placeholder="Add a title to your video"
-            name="title"
-          ></input>
-          <label htmlFor="description" className="upload-pg__form-label">
-            ADD A VIDEO DESCRIPTION
-          </label>
-          <textarea
-            id="description"
-            type="text"
-            name="description"
-            className="upload-pg__form-area"
-            placeholder="Add a description to your video"
-          ></textarea>
+        <div className="upload-pg__row">
+          <div className="upload-pg__form-thumbnail-div">
+            <label>VIDEO THUMBNAIL</label>
+            <img
+              src={uploadImg}
+              alt="runner"
+              className="upload-pg__form__img"
+            />
+          </div>
+          <div className="upload-pg__form-text-sect">
+            <label htmlFor="title" className="upload-pg__form-label">
+              TITLE YOUR VIDEO
+            </label>
+            <input
+              id="title"
+              type="text"
+              className="upload-pg__form-text"
+              placeholder="Add a title to your video"
+              name="title"
+            ></input>
+            <label htmlFor="description" className="upload-pg__form-label">
+              ADD A VIDEO DESCRIPTION
+            </label>
+            <textarea
+              id="description"
+              type="text"
+              name="description"
+              className="upload-pg__form-area"
+              placeholder="Add a description to your video"
+            ></textarea>
+          </div>
         </div>
         <section className="button-sect">
           <div className="upload-pg__btn">
