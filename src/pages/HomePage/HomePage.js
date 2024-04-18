@@ -24,6 +24,7 @@ function HomePage() {
   const filteredVideo = videos.filter((video) => video.id !== displayID);
 
   useEffect(() => {
+    console.log(baseUrl);
     axios.get(`${baseUrl}/videos`).then((response) => {
       setVideos(response.data);
     });
